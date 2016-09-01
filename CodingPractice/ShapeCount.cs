@@ -6,6 +6,8 @@ namespace CodingPractice
     [TestClass]
     public class ShapeCount : ProblemBase
     {
+        public override string Title => "Count Shapes";
+
         public override string Description =>
             "Given a boolean matrix count islands and number of different shapes. "+
             "Two islands are of the same shape if they mapped by a translation.";
