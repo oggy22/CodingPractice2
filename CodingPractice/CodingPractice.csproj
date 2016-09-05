@@ -50,10 +50,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Factorial.cs" />
-    <Compile Include="LongestPalindrome.cs" />
+    <Compile Include="Problems\Factorial.cs" />
+    <Compile Include="Problems\LongestPalindrome.cs" />
     <Compile Include="ProblemBase.cs" />
-    <Compile Include="ShapeCount.cs" />
+    <Compile Include="Problems\ShapeCount.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
