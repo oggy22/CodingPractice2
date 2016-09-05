@@ -6,6 +6,8 @@ namespace CodingPractice
     [TestClass]
     public class Factorial : ProblemBase
     {
+        public override string Title => "Factorial";
+
         public override string Description => "Given a number calculate its factorial";
 
         public override Type Input => typeof(string);

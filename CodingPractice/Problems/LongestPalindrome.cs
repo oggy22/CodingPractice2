@@ -6,6 +6,8 @@ namespace CodingPractice
     [TestClass]
     public class LongestPalindrome : ProblemBase
     {
+        public override string Title => "Longest Palindrome";
+
         public override string Description => "Given a string find the longest palindrome which is a subsequence";
 
         public override Type Input => typeof(string);

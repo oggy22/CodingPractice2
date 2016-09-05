@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CodingPracticeBrowser
 {
@@ -23,6 +13,29 @@ namespace CodingPracticeBrowser
         public MainWindow()
         {
             InitializeComponent();
+
+            typeof(CodingPractice.ProblemBase)
+            .Assembly.GetTypes()
+            .Where(t => t.IsSubclassOf(typeof(CodingPractice.ProblemBase)) && !t.IsAbstract)
+            .Select(t => (CodingPractice.ProblemBase)(Activator.CreateInstance(t)))
+            .ToList<CodingPractice.ProblemBase>()
+            .ForEach(pb => listBox.Items.Add(pb));
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count > 0)
+            {
+                CodingPractice.ProblemBase pb = e.AddedItems[0] as CodingPractice.ProblemBase;
+                string st = pb.Title + Environment.NewLine + pb.Description + Environment.NewLine;
+                textBox.Text = st;
+            }
+        }
+
+        private string SolveToString(CodingPractice.ProblemBase pb)
+        {
+            //todo:
+            return string.Empty;
         }
     }
 }

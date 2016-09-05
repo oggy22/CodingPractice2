@@ -8,6 +8,8 @@ namespace CodingPractice
 {
     public abstract class ProblemBase
     {
+        public abstract string Title { get; }
+
         public abstract string Description { get; }
 
         public abstract Type Input { get; }
