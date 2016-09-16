@@ -50,9 +50,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Problems\BinaryTree.cs" />
+    <Compile Include="Problems\EmailRegex.cs" />
     <Compile Include="Problems\Factorial.cs" />
     <Compile Include="Problems\LongestPalindrome.cs" />
     <Compile Include="ProblemBase.cs" />
+    <Compile Include="Problems\Permutations.cs" />
     <Compile Include="Problems\ShapeCount.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
