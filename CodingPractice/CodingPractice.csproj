@@ -57,8 +57,10 @@
     <Compile Include="ProblemBase.cs" />
     <Compile Include="Problems\Permutations.cs" />
     <Compile Include="Problems\ShapeCount.cs" />
+    <Compile Include="Problems\Sorts\HeapSort.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
