@@ -4,7 +4,7 @@ using System;
 namespace CodingPractice
 {
     [TestClass]
-    public class ShapeCount : ProblemBase
+    public class ShapeCount : ProblemBaseT<bool[,], int>
     {
         public override string Title => "Count Shapes";
 
@@ -12,15 +12,10 @@ namespace CodingPractice
             "Given a boolean matrix count islands and number of different shapes. "+
             "Two islands are of the same shape if they mapped by a translation.";
 
-        public override Type Input => typeof(bool[,]);
-
-        public override Type Output => typeof(int);
-
-
         private bool[,] matrix;
         private int M, N;
 
-        public int solve(bool[,] matrix)
+        public override int Solve(bool[,] matrix)
         {
             this.matrix = matrix;
             M = matrix.GetLength(0);

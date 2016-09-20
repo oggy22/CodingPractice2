@@ -16,7 +16,7 @@ namespace CodingPracticeBrowser
 
             typeof(CodingPractice.ProblemBase)
             .Assembly.GetTypes()
-            .Where(t => t.IsSubclassOf(typeof(CodingPractice.ProblemBase)) && !t.IsAbstract)
+            .Where(t => t.BaseType.BaseType == typeof(CodingPractice.ProblemBase))
             .Select(t => (CodingPractice.ProblemBase)(Activator.CreateInstance(t)))
             .ToList<CodingPractice.ProblemBase>()
             .ForEach(pb => listBox.Items.Add(pb));
@@ -30,12 +30,6 @@ namespace CodingPracticeBrowser
                 string st = pb.Title + Environment.NewLine + pb.Description + Environment.NewLine;
                 textBox.Text = st;
             }
-        }
-
-        private string SolveToString(CodingPractice.ProblemBase pb)
-        {
-            //todo:
-            return string.Empty;
         }
     }
 }

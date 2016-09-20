@@ -5,13 +5,9 @@ using System.Diagnostics;
 namespace CodingPractice.Problems.Sorts
 {
     [TestClass]
-    public class HeapSort : ProblemBase
+    public class HeapSort : ProblemBaseT<int[], int[]>
     {
         public override string Description => "Heap sort implementation";
-
-        public override Type Input => typeof(int[]);
-
-        public override Type Output => typeof(int[]);
 
         public override string Title => "Heap sort implementation";
 
@@ -85,7 +81,7 @@ namespace CodingPractice.Problems.Sorts
             return true;
         }
 
-        public int[] solve(int[] array)
+        public override int[] Solve(int[] array)
         {
             MaxHeapify(array, array.Length);
             Assert.IsTrue(IsHeap(array));
@@ -108,7 +104,7 @@ namespace CodingPractice.Problems.Sorts
             for (int i = 0; i < lenght; i++)
                 array[i] = rand.Next(20);
             int[] arrayCopy = array.Clone() as int[];
-            solve(array);
+            Solve(array);
             Assert.IsTrue(array.IsPermutationOf(arrayCopy));
             Assert.IsTrue(array.IsSorted());
         }

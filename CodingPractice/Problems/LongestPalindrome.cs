@@ -4,17 +4,13 @@ using System;
 namespace CodingPractice
 {
     [TestClass]
-    public class LongestPalindrome : ProblemBase
+    public class LongestPalindrome : ProblemBaseT<string, string>
     {
         public override string Title => "Longest Palindrome";
 
         public override string Description => "Given a string find the longest palindrome which is a subsequence";
 
-        public override Type Input => typeof(string);
-
-        public override Type Output => typeof(string);
-
-        public string solve(string input)
+        public override string Solve(string input)
         {
             int n = input.Length;
             int[,] matrix = new int[n, n];
@@ -62,8 +58,8 @@ namespace CodingPractice
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.AreEqual("aba", solve("12ab345a"));
-            Assert.AreEqual("abba", solve("abba"));
+            Assert.AreEqual("aba", Solve("12ab345a"));
+            Assert.AreEqual("abba", Solve("abba"));
         }
     }
 }

@@ -16,29 +16,13 @@ namespace CodingPractice.Problems
     }
 
     [TestClass]
-    public class BinaryTree : ProblemBase
+    public class BinaryTree : ProblemBaseT<BinaryTreeNode, bool>
     {
         public override string Description => "Check if the given binary tree is a binary SEARCH tree.";
 
-        public override Type Input
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        public override Type Output
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
         public override string Title => "Binary Tree";
 
-        public bool IsBinarySearchTree(BinaryTreeNode root)
+        public override bool Solve(BinaryTreeNode root)
         {
             return RecursiveCheck(root, null, null);
         }

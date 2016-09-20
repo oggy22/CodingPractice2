@@ -5,17 +5,13 @@ using System.Text.RegularExpressions;
 namespace CodingPractice.Problems
 {
     [TestClass]
-    public class EmailRegex : ProblemBase
+    public class EmailRegex : ProblemBaseT<string, bool>
     {
         public override string Description => "Email regex";
 
-        public override Type Input => typeof(string);
-
-        public override Type Output => typeof(bool);
-
         public override string Title => "Email regex";
 
-        public bool solve(string stEmail)
+        public override bool Solve(string stEmail)
         {
             Regex regex = new Regex("[A-Za-z_][A-Za-z0-9_]+@[A-Za-z0-9_]+\\.[A-Za-z0-9_]+");
             MatchCollection mc = regex.Matches(stEmail);
@@ -31,13 +27,12 @@ namespace CodingPractice.Problems
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.IsTrue(solve("oggy@gmail.com"));
-            Assert.IsFalse(solve("oggy@gmail"));
-            Assert.IsFalse(solve("oggy@gmail@oggy"));
-            Assert.IsFalse(solve("oggy@gmail.com@oggy"));
+            Assert.IsTrue(Solve("oggy@gmail.com"));
+            Assert.IsFalse(Solve("oggy@gmail"));
+            Assert.IsFalse(Solve("oggy@gmail@oggy"));
+            Assert.IsFalse(Solve("oggy@gmail.com@oggy"));
             return;
-
-            Assert.IsTrue(solve("ognjen.sobajic@gmail.com"));
+            Assert.IsTrue(Solve("ognjen.sobajic@gmail.com"));
         }
     }
 }
