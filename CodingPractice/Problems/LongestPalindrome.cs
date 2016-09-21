@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace CodingPractice
 {
@@ -9,6 +10,14 @@ namespace CodingPractice
         public override string Title => "Longest Palindrome";
 
         public override string Description => "Given a string find the longest palindrome which is a subsequence";
+
+        protected override IEnumerable<Tuple<string, string>> TestCases
+        {
+            get
+            {
+                yield return new Tuple<string, string>("abcdefg", "a");
+            }
+        }
 
         public override string Solve(string input)
         {
@@ -53,13 +62,6 @@ namespace CodingPractice
                 if (i>j)
                     return left + right;
             }
-        }
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-            Assert.AreEqual("aba", Solve("12ab345a"));
-            Assert.AreEqual("abba", Solve("abba"));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace CodingPractice
 {
@@ -9,6 +10,19 @@ namespace CodingPractice
         public override string Title => "Factorial";
 
         public override string Description => "Given a number calculate its factorial";
+
+        protected override IEnumerable<Tuple<int, int>> TestCases
+        {
+            get
+            {
+                yield return new Tuple<int, int>(0, 1);
+                yield return new Tuple<int, int>(1, 1);
+                yield return new Tuple<int, int>(2, 2);
+                yield return new Tuple<int, int>(3, 6);
+                yield return new Tuple<int, int>(4, 24);
+                yield return new Tuple<int, int>(5, 120);
+            }
+        }
 
         public override int Solve(int n)
         {
@@ -20,17 +34,6 @@ namespace CodingPractice
                 res *= i;
 
             return res;
-        }
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-            Assert.AreEqual(1, Solve(0));
-            Assert.AreEqual(1, Solve(1));
-            Assert.AreEqual(2, Solve(2));
-            Assert.AreEqual(6, Solve(3));
-            Assert.AreEqual(24, Solve(4));
-            Assert.AreEqual(120, Solve(5));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace CodingPractice
 {
@@ -11,6 +12,14 @@ namespace CodingPractice
         public override string Description =>
             "Given a boolean matrix count islands and number of different shapes. "+
             "Two islands are of the same shape if they mapped by a translation.";
+
+        protected override IEnumerable<Tuple<bool[,], int>> TestCases
+        {
+            get
+            {
+                yield return new Tuple<bool[,], int>(new bool[2, 2] { { true, false }, { false, true } }, 2);
+            }
+        }
 
         private bool[,] matrix;
         private int M, N;
@@ -43,12 +52,6 @@ namespace CodingPractice
                 paint(i + 1, j);
             if (j < N && matrix[i, j + 1])
                 paint(i, j + 1);
-        }
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-
         }
     }
 }

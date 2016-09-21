@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CodingPractice.Problems
@@ -7,11 +8,17 @@ namespace CodingPractice.Problems
     {
         public int data;
         public BinaryTreeNode left, right;
-        BinaryTreeNode(int data, BinaryTreeNode left, BinaryTreeNode right)
+        public BinaryTreeNode(int data, BinaryTreeNode left, BinaryTreeNode right)
         {
             this.data = data;
             this.left = left;
             this.right = right;
+        }
+        public BinaryTreeNode(int data)
+        {
+            this.data = data;
+            this.left = null;
+            this.right = null;
         }
     }
 
@@ -21,6 +28,14 @@ namespace CodingPractice.Problems
         public override string Description => "Check if the given binary tree is a binary SEARCH tree.";
 
         public override string Title => "Binary Tree";
+
+        protected override IEnumerable<Tuple<BinaryTreeNode, bool>> TestCases
+        {
+            get
+            {
+                yield return new Tuple<BinaryTreeNode, bool>(new BinaryTreeNode(10), true);
+            }
+        }
 
         public override bool Solve(BinaryTreeNode root)
         {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace CodingPractice.Problems.Sorts
 {
@@ -10,6 +11,14 @@ namespace CodingPractice.Problems.Sorts
         public override string Description => "Heap sort implementation";
 
         public override string Title => "Heap sort implementation";
+
+        protected override IEnumerable<Tuple<int[], int[]>> TestCases
+        {
+            get
+            {
+                yield break;
+            }
+        }
 
         private static void swap(int[] array, int i, int j)
         {
@@ -96,8 +105,9 @@ namespace CodingPractice.Problems.Sorts
         }
 
         [TestMethod]
-        public void Test()
+        public new void Test()
         {
+            base.Test();
             int lenght = 15;
             Random rand = new Random(0);
             int[] array = new int[lenght];

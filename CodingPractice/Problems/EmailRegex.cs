@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
 
 namespace CodingPractice.Problems
 {
@@ -10,6 +11,17 @@ namespace CodingPractice.Problems
         public override string Description => "Email regex";
 
         public override string Title => "Email regex";
+
+        protected override IEnumerable<Tuple<string, bool>> TestCases
+        {
+            get
+            {
+                yield return new Tuple<string, bool>("oggy@gmail.com", true);
+                yield return new Tuple<string, bool>("oggy@gmail", false);
+                yield return new Tuple<string, bool>("oggy@gmail@oggy", false);
+                yield return new Tuple<string, bool>("oggy@gmail.com@oggy", false);
+            }
+        }
 
         public override bool Solve(string stEmail)
         {
@@ -22,17 +34,6 @@ namespace CodingPractice.Problems
                     return true;
             }
             return false;
-        }
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-            Assert.IsTrue(Solve("oggy@gmail.com"));
-            Assert.IsFalse(Solve("oggy@gmail"));
-            Assert.IsFalse(Solve("oggy@gmail@oggy"));
-            Assert.IsFalse(Solve("oggy@gmail.com@oggy"));
-            return;
-            Assert.IsTrue(Solve("ognjen.sobajic@gmail.com"));
         }
     }
 }
