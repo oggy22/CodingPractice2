@@ -15,8 +15,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="3" SelectionChanged="listBox_SelectionChanged">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="5" SelectionChanged="listBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Path=Title}" 
@@ -24,8 +26,12 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Label x:Name="lblTitle" Grid.Column="1" Grid.Row="0" Content="Title" HorizontalAlignment="Left" FontWeight="Bold"/>
-        <TextBox x:Name="txtDescription" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
-        <TextBox x:Name="textBox1" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" />
+        <Label x:Name="lblTitle" FontSize="14" Grid.Column="1" Grid.Row="0" Content="Title" HorizontalAlignment="Left" FontWeight="Bold"/>
+        <TextBox x:Name="txtDescription" Grid.Column="1" FontStyle="Italic" Grid.Row="1" TextWrapping="Wrap" Text="" IsReadOnly="True"/>
+        <TextBox x:Name="txtProgram" AcceptsReturn="True" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="" />
+        <TextBox x:Name="txtOutput" AcceptsReturn="True" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="" />
+        <Button x:Name="bttnCompile" Grid.Column="1" Grid.Row="4" Click="bttnCompile_Click">
+            <Label>Compile and Test</Label>
+        </Button>
     </Grid>
 </Window>
